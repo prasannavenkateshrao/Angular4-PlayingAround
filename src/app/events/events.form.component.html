@@ -1,7 +1,0 @@
-<form #todoEventsForm="ngForm" (ngSubmit)="saveEvent(todoEventsForm.value)">
-	Enter the todo item:<input [(ngModel)]="todoItem" name="todoItem" id="todoItem" type="text" placeholder="Enter the todo item..." />
-	<button type="submit">Submit</button><br/>
-	<div *ngFor="let savedItem of savedItems; let i = index" role="listitem">
-		<p>Saved item {{i+1}}={{savedItem}}<a class="delete-link" href="javascript:void(0)" (click)="deleteItem(savedItem)">Delete</a></p>
-	</div>
-</form>
