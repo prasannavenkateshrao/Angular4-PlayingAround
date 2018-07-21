@@ -1,0 +1,44 @@
+.saved-items{
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+.completedItem{
+	text-decoration: line-through;
+}
+a{
+	text-decoration: none;
+	color: #A9A9A9;
+	padding-left:5px;
+	font-weight:bold;
+}
+
+a.adisabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.toDoHeading{
+	padding-top: 30px;
+}
+
+hr.belowHeader{
+	border: none;
+    height: 2px;
+    color: #333;
+    background-color: #333;
+}
+
+hr.belowValue{
+	border: none;
+    height: 1px;
+    color: #cccccc;
+    background-color: #cccccc;
+}
+.compHeading{
+	padding-top: 10px;
+}
+
+a.adisabled:hover { text-decoration: none; }
+a.adisabled:focus { text-decoration: none; }
+a.adisabled:active { text-decoration: none; }

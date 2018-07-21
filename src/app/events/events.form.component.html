@@ -1,0 +1,27 @@
+<p>{{staticContent.addItemLabel}}</p><hr class="belowHeader"/>
+<input [(ngModel)]="todoItem" name="todoItem" id="todoItem" type="text" (input)="enableAddButton()"/>
+<a href="javascript:void(0)" (click)="saveEvent(todoItem)" [ngClass]="{'adisabled': !isAddUsable}">{{staticContent.addLink}}</a><br/>
+<div *ngIf="savedItems?.length > 0" class="toDoHeading">{{staticContent.toDoItemLabel}}<hr class="belowHeader"/>
+	<div *ngFor="let savedItem of savedItems; let i = index" role="listitem">
+		<p class="list" >
+			<input id="checkbox{{i+1}}" type="checkbox" (change)="enableToDoListLinks($event)"/>
+			<label for="checkbox{{i+1}}" *ngIf="savedIndex !== i" id="savedItem_label_{{i+1}}">{{savedItem}}</label>
+			<input id="savedItem_input_{{i}}" *ngIf="savedIndex === i" name="existingItem" (input)="storeUpdatedValue($event)" type="text" value="{{savedItem}}">
+			<a href="javascript:void(0)" (click)="editToDoItem(i)" *ngIf="savedIndex !== i" id="editItem_{{i}}">{{staticContent.editLink}}</a>
+			<a href="javascript:void(0)" *ngIf="savedIndex === i" (click)="updateEvent(i)" id="saveItem_{{i}}">{{staticContent.saveLink}}</a>
+	 		<a href="javascript:void(0)" (click)="deleteToDoItem(savedItem)">{{staticContent.deleteLink}}</a>
+			<a href="javascript:void(0)" (click)="markComplete(savedItem)">{{staticContent.completeLink}}</a> 
+		</p>
+		<hr class="belowValue"/>
+	</div>
+</div>
+<div *ngIf="completedItems?.length > 0" class="compHeading">{{staticContent.completedItemLabel}}<hr class="belowHeader"/>
+	<div *ngFor="let completedItem of completedItems; let j = index" role="listitem">
+		<p class="list" >
+			<input id="checkbox{{j+1}}" type="checkbox" checked (change)="enableCompListLinks($event)"/>
+		    <label for="checkbox{{j+1}}" class="completedItem">{{completedItem}}</label>
+		    <a href="javascript:void(0)" (click)="deleteCompletedItem(completedItem)">{{staticContent.deleteLink}}</a>
+	    </p>
+	    <hr class="belowValue"/>
+	</div>
+</div>
